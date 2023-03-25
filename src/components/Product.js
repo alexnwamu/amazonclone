@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import {StarIcon} from '@heroicons/react/solid'
 import Currency from 'react-currency-formatter'
 import { useDispatch } from 'react-redux'
 import { addToBasket } from '../slices/basketSlice'
 const Product = ({id,title,price,description,category,image}) => {
-    const [rating] = useState(Math.floor(Math.random() * 5) + 1)
-    const [hasPrime] = useState(Math.random()< 0.5) 
+    const [rating,setRating] = useState(1)
+    const [hasPrime,setHasPrime] = useState(true) 
+    useEffect(()=>{
+setRating(
+    Math.floor(Math.random() * 5) + 1
+)
+setHasPrime(Math.random()< 0.5)
+    },[])
     const dispatch = useDispatch();
     const addItemToBasket = () =>{
         const product = {
