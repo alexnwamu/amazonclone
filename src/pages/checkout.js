@@ -4,8 +4,8 @@ import Image from 'next/dist/client/image'
 import CheckoutProduct from '../components/CheckoutProduct'
 import { useSelector } from 'react-redux'
 import {  selectItems, selectTotal } from '../slices/basketSlice'
-import { signIn, signOut, useSession } from 'next-auth/react'
-import Currency from "react-currency-formatter"
+import {useSession } from 'next-auth/react'
+
 const Checkout = () => {
     const items = useSelector(selectItems)
     const total = useSelector(selectTotal)
@@ -40,7 +40,7 @@ const Checkout = () => {
                     {items.length > 0 && <>
                         <h2 className='whitespace-nowrap'>Subtotal ({items.length} items): 
                         <span className='font-bold ml-1'>
-                            <Currency quantity ={total} />
+                           <h1>${total}</h1>
                         </span>
                         </h2>
                         <button disabled ={!session} className={`button text-xs mt-2 ${!session && 'from-gray-300 to-gray-500 text-gray-300 cursor-not-allowed'}`}>

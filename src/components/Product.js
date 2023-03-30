@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import {StarIcon} from '@heroicons/react/solid'
-import Currency from 'react-currency-formatter'
+
 import { useDispatch } from 'react-redux'
 import { addToBasket } from '../slices/basketSlice'
 const Product = ({id,title,price,description,category,image}) => {
@@ -35,7 +35,7 @@ setHasPrime(Math.random()< 0.5)
         </div>
         <p className='text-xs my-2 line-clamp-2'>{description}</p>
         <div className="mb-5">
-            <Currency quantity={price} currency = 'USD'/>
+           <h1>${price}</h1>
         </div>
         {hasPrime && 
         <div className='flex items-center space-x-2 -mt5'><img className='w-12' src="https://links.papareact.com/fdw"

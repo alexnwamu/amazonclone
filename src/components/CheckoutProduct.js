@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/dist/client/image'
 import {StarIcon} from '@heroicons/react/solid'
-import Currency from 'react-currency-formatter'
 import { useDispatch } from 'react-redux'
 import { addToBasket, removeFromBasket } from '../slices/basketSlice'
 const CheckoutProduct = ({id,title,price,description,category,rating,image,hasPrime}) => {
@@ -32,8 +31,7 @@ width ={200} objectFit = 'contain'
         }
     </div>
     <p className='text-xs my-2 line-clamp-3'>{description}</p>
-    <Currency quantity = {price} currency ='USD'/>
-
+    <h1>${price}</h1>
     {hasPrime && <div className='flex items-center space-x-2'>
         <img src="https://links.papareact.com/fdw" alt="" className='w-12' />
         <p className='text-xs text-gray-500'>FREE Next-day Delivery</p>
